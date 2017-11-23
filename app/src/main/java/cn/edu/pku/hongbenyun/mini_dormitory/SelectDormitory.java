@@ -3,7 +3,6 @@ package cn.edu.pku.hongbenyun.mini_dormitory;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -46,7 +45,7 @@ public class SelectDormitory extends Activity implements View.OnClickListener{
         other_students_Lv.setAdapter(myAapter);
 
         location_Sp = (Spinner)findViewById(R.id.location);
-        final String[] lItems = {"5号楼","13号楼","9号楼"};
+        String[] lItems = {"5号楼","13号楼","9号楼"};
         ArrayAdapter<String> location_adapter=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, lItems);
         location_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         location_Sp .setAdapter(location_adapter);
@@ -91,8 +90,7 @@ public class SelectDormitory extends Activity implements View.OnClickListener{
         }
         if (v.getId() == R.id.title_back)
         {
-            Intent i = new Intent(this, MainActivity.class);
-            startActivity(i);
+            onBackPressed();
         }
     }
 }
