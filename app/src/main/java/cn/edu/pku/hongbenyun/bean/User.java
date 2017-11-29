@@ -1,10 +1,12 @@
 package cn.edu.pku.hongbenyun.bean;
 
+import java.io.Serializable;
+
 /**
  * Created by Mike_Hong on 2017/11/23.
  */
 
-public class User {
+public class User implements Serializable{
     private String studentid;
     private String name;
     private String gender;

@@ -12,13 +12,15 @@ import android.widget.EditText;
 import java.util.ArrayList;
 import java.util.List;
 
+import cn.edu.pku.hongbenyun.bean.User;
+
 /**
  * Created by Mike_Hong on 2017/10/26.
  */
 
 public class MyAdapter extends BaseAdapter {
 
-    private List<String> list = new ArrayList<String>();
+    private List<User> list = new ArrayList<User>();
     private Context context;
 
     public MyAdapter(Context context) {
@@ -43,11 +45,12 @@ public class MyAdapter extends BaseAdapter {
     public View getView(final int position, View convertView, ViewGroup parent) {
 
         convertView= LayoutInflater.from(context).inflate(R.layout.listview_item, null);
-        final EditText editText = (EditText)convertView.findViewById(R.id.id);
+        final EditText studentid_Et = (EditText)convertView.findViewById(R.id.studentid);
+        final EditText vcode_Et = (EditText) convertView.findViewById(R.id.vcode_other);
 
         //为editText设置TextChangedListener，每次改变的值设置到hashMap
         //我们要拿到里面的值根据position拿值
-        editText.addTextChangedListener(new TextWatcher() {
+        studentid_Et.addTextChangedListener(new TextWatcher() {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
 
@@ -62,12 +65,33 @@ public class MyAdapter extends BaseAdapter {
             @Override
             public void afterTextChanged(Editable s) {
                 //将editText中改变的值设置的HashMap中
-                list.set(position,editText.getText().toString());
+                list.get(position).setStudentid(studentid_Et.getText().toString());
             }
         });
+
+        vcode_Et.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start,
+                                          int count,int after) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                //将editText中改变的值设置的HashMap中
+                list.get(position).setVcode(vcode_Et.getText().toString());
+            }
+        });
+
         if(list.size()!=0)
         {
-            editText.setText(list.get(position));
+            studentid_Et.setText(list.get(position).getStudentid());
+            vcode_Et.setText(list.get(position).getVcode());
         }
         return convertView;
     }
@@ -75,9 +99,12 @@ public class MyAdapter extends BaseAdapter {
     public void updateListView(int other_student_number)
     {
         list.clear();
-        for(int i=0;i<other_student_number;i++)
+        for(int i = 0;i < other_student_number; i++)
         {
-            list.add(new String(""));
+            User user = new User();
+            user.setStudentid("");
+            user.setVcode("");
+            list.add(user);
         }
         notifyDataSetChanged();
     }

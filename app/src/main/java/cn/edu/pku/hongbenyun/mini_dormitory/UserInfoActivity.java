@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -55,6 +56,12 @@ public class UserInfoActivity extends Activity implements View.OnClickListener{
         start_selection_Bt = (Button)findViewById(R.id.start_selection);
         start_selection_Bt.setOnClickListener(this);
 
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         Intent intent =this.getIntent();
         String username=intent.getStringExtra("username");
 
@@ -71,12 +78,17 @@ public class UserInfoActivity extends Activity implements View.OnClickListener{
                             JSONObject all_object = new JSONObject(s);
                             int errcode = all_object.getInt("errcode");
                             String data = all_object.getString("data");
-                            Gson gson = new Gson();
-                            user = gson.fromJson(data, User.class);
                             if(errcode != 0)
-                                Toast.makeText(UserInfoActivity.this,"服务器错误!",Toast.LENGTH_LONG).show();
+                            {
+                                JSONObject data_object = new JSONObject(data);
+                                String errmsg = data_object.getString("errmsg");
+                                Toast.makeText(UserInfoActivity.this,errmsg,Toast.LENGTH_LONG).show();
+                            }
                             else
                             {
+                                Gson gson = new Gson();
+                                user = gson.fromJson(data, User.class);
+
                                 studentid_Tv.setText(user.getStudentid());
                                 name_Tv.setText(user.getName());
                                 gender_Tv.setText(user.getGender());
@@ -85,6 +97,9 @@ public class UserInfoActivity extends Activity implements View.OnClickListener{
                                 building_Tv.setText(user.getBuilding());
                                 location_Tv.setText(user.getLocation());
                                 grade_Tv.setText(user.getGrade());
+
+                                if(user.getRoom() != null)
+                                    start_selection_Bt.setVisibility(View.INVISIBLE);
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -93,13 +108,12 @@ public class UserInfoActivity extends Activity implements View.OnClickListener{
                 });
     }
 
-
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.start_selection)
         {
             Intent i = new Intent(this, SelectDormitory.class);
-            i.putExtra("userID",user.getStudentid());
+            i.putExtra("user",user);
             startActivity(i);
         }
     }

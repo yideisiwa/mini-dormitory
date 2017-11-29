@@ -1,60 +1,364 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="match_parent"
-	android:layout_height="match_parent"
-	android:background="#F5F5F5"
-	android:orientation="vertical">
+	<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:background="#F5F5F5"
+			android:orientation="vertical">
 
-	<RelativeLayout
-		android:layout_width="fill_parent"
-		android:layout_height="45.0dip"
-		android:background="#ffcd2626" >
-		<TextView
-			android:id="@+id/title_name"
-			android:layout_width="fill_parent"
-			android:layout_height="fill_parent"
-			android:gravity="center"
-			android:text="在线选宿舍系统"
-			android:textColor="#ffffffff"
-			android:textSize="20.0dip" />
-		<ImageView
-			android:id="@+id/title_back"
-			android:layout_width="45.0dip"
-			android:layout_height="45.0dip"
-			android:layout_alignParentLeft="true"
-			android:layout_centerVertical="true"
-			android:src="@drawable/base_action_bar_back_normal" />
-		<ImageView
-			android:layout_width="1.0dip"
-			android:layout_height="40dip"
-			android:layout_centerVertical="true"
-			android:layout_gravity="center"
-			android:layout_toRightOf="@id/title_back"
-			android:background="#A71717"
-			android:gravity="center" />
-	</RelativeLayout>
+			<RelativeLayout
+				android:layout_width="fill_parent"
+				android:layout_height="45.0dip"
+				android:background="#ffcd2626" >
+				<TextView
+					android:id="@+id/title_name"
+					android:layout_width="fill_parent"
+					android:layout_height="fill_parent"
+					android:gravity="center"
+					android:text="在线选宿舍系统"
+					android:textColor="#ffffffff"
+					android:textSize="20.0dip" />
+				<ImageView
+					android:id="@+id/title_back"
+					android:layout_width="45.0dip"
+					android:layout_height="45.0dip"
+					android:layout_alignParentLeft="true"
+					android:layout_centerVertical="true"
+					android:src="@drawable/base_action_bar_back_normal" />
+				<ImageView
+					android:layout_width="1.0dip"
+					android:layout_height="40dip"
+					android:layout_centerVertical="true"
+					android:layout_gravity="center"
+					android:layout_toRightOf="@id/title_back"
+					android:background="#A71717"
+					android:gravity="center" />
+			</RelativeLayout>
 
-	<ImageView
-		android:layout_width="match_parent"
-		android:layout_height="1.0dip"
-		android:layout_marginTop="20dp"
-		android:background="#FAFAFA" />
+			<ImageView
+				android:layout_width="match_parent"
+				android:layout_height="1.0dip"
+				android:layout_marginTop="20dp"
+				android:background="#FAFAFA" />
 
-	<Spinner
-		android:id="@+id/location"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:layout_marginTop="10dp"/>
-	<Spinner
-		android:id="@+id/total_number"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:layout_marginTop="10dp"/>
-	<ListView
-		android:id="@+id/other_students"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:visibility="gone"/>
+			<RelativeLayout
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:background="#FFFFFF"
+				android:gravity="center_vertical"
+				android:paddingBottom="5dp"
+				android:paddingLeft="5dp"
+				android:paddingRight="5dp"
+				android:paddingTop="5dp">
+
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignParentLeft="true"
+					android:text="学号"
+					android:textColor="#000"
+					android:textSize="20dp" />
+
+				<TextView
+					android:id="@+id/studentid"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignParentRight="true"
+					android:text="无"
+					android:textColor="#000"
+					android:textSize="20dp" />
+			</RelativeLayout>
+
+			<ImageView
+				android:layout_width="match_parent"
+				android:layout_height="1.0dip"
+				android:background="#FAFAFA" />
+
+			<RelativeLayout
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:paddingTop="5dp"
+				android:paddingBottom="5dp"
+				android:paddingLeft="5dp"
+				android:paddingRight="5dp"
+				android:gravity="center_vertical"
+				android:background="#FFFFFF" >
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignParentLeft="true"
+					android:text="姓名"
+					android:textColor="#000"
+					android:textSize="20dp" />
+				<TextView
+					android:id="@+id/name"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignParentRight="true"
+					android:text="无"
+					android:textColor="#000"
+					android:textSize="20dp" />
+			</RelativeLayout>
+			<ImageView
+				android:layout_width="match_parent"
+				android:layout_height="1.0dip"
+				android:background="#FAFAFA" />
+
+			<RelativeLayout
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:paddingTop="5dp"
+				android:paddingBottom="5dp"
+				android:paddingLeft="5dp"
+				android:paddingRight="5dp"
+				android:gravity="center_vertical"
+				android:background="#FFFFFF" >
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignParentLeft="true"
+					android:text="性别"
+					android:textColor="#000"
+					android:textSize="20dp" />
+				<TextView
+					android:id="@+id/gender"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignParentRight="true"
+					android:text="无"
+					android:textColor="#000"
+					android:textSize="20dp" />
+			</RelativeLayout>
+			<ImageView
+				android:layout_width="match_parent"
+				android:layout_height="1.0dip"
+				android:background="#FAFAFA" />
+
+			<RelativeLayout
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:paddingTop="5dp"
+				android:paddingBottom="5dp"
+				android:paddingLeft="5dp"
+				android:paddingRight="5dp"
+				android:gravity="center_vertical"
+				android:background="#FFFFFF" >
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignParentLeft="true"
+					android:text="校验码"
+					android:textColor="#000"
+					android:textSize="20dp" />
+				<TextView
+					android:id="@+id/vcode"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignParentRight="true"
+					android:text="无"
+					android:textColor="#000"
+					android:textSize="20dp" />
+			</RelativeLayout>
+			<ImageView
+				android:layout_width="match_parent"
+				android:layout_height="1.0dip"
+				android:background="#FAFAFA" />
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_alignParentLeft="true"
+				android:layout_marginTop="20dp"
+				android:background="#F5F5F5"
+				android:text="剩余床位信息"
+				android:textColor="#000"
+				android:textSize="20dp" />
+			<RelativeLayout
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:paddingTop="5dp"
+				android:paddingBottom="5dp"
+				android:paddingLeft="5dp"
+				android:paddingRight="5dp"
+				android:gravity="center_vertical"
+				android:background="#FFFFFF" >
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignParentLeft="true"
+					android:text="5号楼"
+					android:textColor="#000"
+					android:textSize="20dp" />
+				<TextView
+					android:id="@+id/building_5"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignParentRight="true"
+					android:text="无"
+					android:textColor="#000"
+					android:textSize="20dp" />
+			</RelativeLayout>
+			<ImageView
+				android:layout_width="match_parent"
+				android:layout_height="1.0dip"
+				android:background="#FAFAFA" />
+
+			<RelativeLayout
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:paddingTop="5dp"
+				android:paddingBottom="5dp"
+				android:paddingLeft="5dp"
+				android:paddingRight="5dp"
+				android:gravity="center_vertical"
+				android:background="#FFFFFF" >
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignParentLeft="true"
+					android:text="13号楼"
+					android:textColor="#000"
+					android:textSize="20dp" />
+				<TextView
+					android:id="@+id/building_13"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignParentRight="true"
+					android:text="无"
+					android:textColor="#000"
+					android:textSize="20dp" />
+			</RelativeLayout>
+			<ImageView
+				android:layout_width="match_parent"
+				android:layout_height="1.0dip"
+				android:background="#FAFAFA" />
+
+			<RelativeLayout
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:paddingTop="5dp"
+				android:paddingBottom="5dp"
+				android:paddingLeft="5dp"
+				android:paddingRight="5dp"
+				android:gravity="center_vertical"
+				android:background="#FFFFFF" >
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignParentLeft="true"
+					android:text="14号楼"
+					android:textColor="#000"
+					android:textSize="20dp" />
+				<TextView
+					android:id="@+id/building_14"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignParentRight="true"
+					android:text="无"
+					android:textColor="#000"
+					android:textSize="20dp" />
+			</RelativeLayout>
+			<ImageView
+				android:layout_width="match_parent"
+				android:layout_height="1.0dip"
+				android:background="#FAFAFA" />
+
+			<RelativeLayout
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:paddingTop="5dp"
+				android:paddingBottom="5dp"
+				android:paddingLeft="5dp"
+				android:paddingRight="5dp"
+				android:gravity="center_vertical"
+				android:background="#FFFFFF" >
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignParentLeft="true"
+					android:text="8号楼"
+					android:textColor="#000"
+					android:textSize="20dp" />
+				<TextView
+					android:id="@+id/building_8"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignParentRight="true"
+					android:text="无"
+					android:textColor="#000"
+					android:textSize="20dp" />
+			</RelativeLayout>
+			<ImageView
+				android:layout_width="match_parent"
+				android:layout_height="1.0dip"
+				android:background="#FAFAFA" />
+			<RelativeLayout
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:paddingTop="5dp"
+				android:paddingBottom="5dp"
+				android:paddingLeft="5dp"
+				android:paddingRight="5dp"
+				android:gravity="center_vertical"
+				android:background="#FFFFFF" >
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignParentLeft="true"
+					android:text="9号楼"
+					android:textColor="#000"
+					android:textSize="20dp" />
+				<TextView
+					android:id="@+id/building_9"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignParentRight="true"
+					android:text="无"
+					android:textColor="#000"
+					android:textSize="20dp" />
+			</RelativeLayout>
+			<ImageView
+				android:layout_width="match_parent"
+				android:layout_height="1.0dip"
+				android:background="#FAFAFA" />
+			<ImageView
+				android:layout_width="match_parent"
+				android:layout_height="1.0dip"
+				android:layout_marginTop="20dp"
+				android:background="#FAFAFA" />
+
+			<Spinner
+				android:id="@+id/location"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="10dp"/>
+
+
+			<Spinner
+				android:id="@+id/total_number"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="10dp"/>
+
+			<TextView
+				android:id="@+id/group_info"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_alignParentLeft="true"
+				android:layout_marginTop="20dp"
+				android:background="#FAFAFA"
+				android:text="同住人信息"
+				android:textColor="#000"
+				android:textSize="20dp"
+				android:visibility="gone"/>
+
+			<ListView
+				android:id="@+id/other_students"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:visibility="gone"/>
 
 	<Button
 		android:id="@+id/submit"
@@ -67,3 +371,5 @@
 
 
 </LinearLayout>
+
+</ScrollView>

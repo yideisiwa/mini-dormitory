@@ -13,9 +13,16 @@
         android:text="其他同学学号" />
 
     <EditText
-        android:id="@+id/id"
+        android:id="@+id/studentid"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
+        android:hint="学号"
+        android:background="@drawable/edit_bar" />
+    <EditText
+        android:id="@+id/vcode_other"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="邀请码"
         android:background="@drawable/edit_bar" />
 
 </LinearLayout>
