@@ -14,15 +14,17 @@
 
     <EditText
         android:id="@+id/studentid"
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="学号"
-        android:background="@drawable/edit_bar" />
+        android:singleLine="true"
+        android:background="@drawable/search_bar_edit_normal" />
     <EditText
         android:id="@+id/vcode_other"
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="邀请码"
-        android:background="@drawable/edit_bar" />
+        android:singleLine="true"
+        android:background="@drawable/search_bar_edit_normal" />
 
 </LinearLayout>

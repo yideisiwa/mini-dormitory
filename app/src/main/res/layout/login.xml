@@ -36,7 +36,7 @@
             android:layout_marginBottom="10dp"
             android:hint="用户名"
             android:textSize="20dp"
-            android:maxLines="1"/>
+            android:singleLine="true"/>
 
         <EditText
             android:id="@+id/password"
@@ -46,7 +46,8 @@
             android:layout_marginBottom="20dp"
             android:hint="密码"
             android:textSize="20dp"
-            android:maxLines="1"/>
+            android:inputType="textPassword"
+            android:singleLine="true"/>
 
         <Button
             android:id="@+id/login"
