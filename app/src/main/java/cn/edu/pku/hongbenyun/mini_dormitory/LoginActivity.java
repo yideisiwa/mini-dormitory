@@ -64,7 +64,8 @@ public class LoginActivity extends Activity implements View.OnClickListener
         String url = "https://api.mysspku.com/index.php/V1/MobileCourse/Login";
         final String username = user_name_Et.getText().toString();
         String password = password_Et.getText().toString();
-        Log.d("mydor", "11");
+        if(username.equals("") || password.equals(""))
+            Toast.makeText(LoginActivity.this,"用户名密码不可为空",Toast.LENGTH_LONG).show();
         OkGo.get(url)                            // 请求方式和请求url
                 .tag(this)                       // 请求的 tag, 主要用于取消对应的请求
                 .cacheKey("cacheKey")            // 设置当前请求的缓存key,建议每个不同功能的请求设置一个

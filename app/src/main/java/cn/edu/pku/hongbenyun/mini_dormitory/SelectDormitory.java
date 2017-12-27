@@ -210,7 +210,30 @@ public class SelectDormitory extends Activity implements View.OnClickListener{
                 EditText studentid_Et = (EditText) other_students_Lv.getAdapter().getView(i,null,null).findViewById(R.id.studentid);
                 EditText vcodeid_Et = (EditText) other_students_Lv.getAdapter().getView(i,null,null).findViewById(R.id.vcode_other);
                 hashMap.put("stu"+i+1+"id",studentid_Et.getText().toString());
-                hashMap.put("v"+i+1+"code",studentid_Et.getText().toString());
+                hashMap.put("v"+i+1+"code",vcodeid_Et.getText().toString());
+            }
+            for(int i = 0;i < other_students_Lv.getAdapter().getCount(); i++)
+            {
+                String studentid = hashMap.get("stu"+i+1+"id");
+                String vcode = hashMap.get("v"+i+1+"code");
+                if(studentid.equals("") || vcode.equals(""))
+                {
+                    Toast.makeText(SelectDormitory.this,"请将同住人信息填写完整",Toast.LENGTH_LONG).show();
+                    return;
+                }
+                if(studentid.equals(user.getStudentid()))
+                {
+                    Toast.makeText(SelectDormitory.this,"同住人不可为本人",Toast.LENGTH_LONG).show();
+                    return;
+                }
+                for(int j = i + 1; j <other_students_Lv.getAdapter().getCount();j++)
+                {
+                    if(studentid.equals(hashMap.get("stu"+j+1+"id")))
+                    {
+                        Toast.makeText(SelectDormitory.this,"同住人学号不可相同",Toast.LENGTH_LONG).show();
+                        return;
+                    }
+                }
             }
             OkGo.post(url)//
                     .tag(this)//
