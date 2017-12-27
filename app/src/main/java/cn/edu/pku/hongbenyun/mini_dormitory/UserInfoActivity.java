@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,6 +38,7 @@ public class UserInfoActivity extends Activity implements View.OnClickListener{
     private TextView building_Tv;
     private TextView location_Tv;
     private TextView grade_Tv;
+    private ImageView map_Img;
     private User user;
 
     @Override
@@ -55,6 +57,9 @@ public class UserInfoActivity extends Activity implements View.OnClickListener{
 
         start_selection_Bt = (Button)findViewById(R.id.start_selection);
         start_selection_Bt.setOnClickListener(this);
+
+        map_Img = (ImageView)findViewById(R.id.map);
+
 
 
     }
@@ -99,7 +104,10 @@ public class UserInfoActivity extends Activity implements View.OnClickListener{
                                 grade_Tv.setText(user.getGrade());
 
                                 if(user.getRoom() != null)
+                                {
                                     start_selection_Bt.setVisibility(View.INVISIBLE);
+                                    map_Img.setVisibility(View.VISIBLE);
+                                }
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();

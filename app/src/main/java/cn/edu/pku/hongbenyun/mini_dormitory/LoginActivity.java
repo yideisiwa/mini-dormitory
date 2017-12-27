@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -42,6 +43,7 @@ public class LoginActivity extends Activity implements View.OnClickListener
         login_Bt = (Button)findViewById(R.id.login);
         login_Bt.setOnClickListener(this);
 
+
     }
 
     @Override
@@ -62,6 +64,7 @@ public class LoginActivity extends Activity implements View.OnClickListener
         String url = "https://api.mysspku.com/index.php/V1/MobileCourse/Login";
         final String username = user_name_Et.getText().toString();
         String password = password_Et.getText().toString();
+        Log.d("mydor", "11");
         OkGo.get(url)                            // 请求方式和请求url
                 .tag(this)                       // 请求的 tag, 主要用于取消对应的请求
                 .cacheKey("cacheKey")            // 设置当前请求的缓存key,建议每个不同功能的请求设置一个
@@ -77,13 +80,15 @@ public class LoginActivity extends Activity implements View.OnClickListener
                             String data = all_object.getString("data");
                             JSONObject data_object = new JSONObject(data);
                             String errmsg = data_object.getString("errmsg");
-                            if(errcode != 0)
-                                Toast.makeText(LoginActivity.this,errmsg,Toast.LENGTH_LONG).show();
-                            else
+                            if(errcode == 0)
                             {
                                 Intent i = new Intent(LoginActivity.this,UserInfoActivity.class);
                                 i.putExtra("username",username);
                                 startActivity(i);
+                            }
+                            else
+                            {
+                                Toast.makeText(LoginActivity.this,errmsg,Toast.LENGTH_LONG).show();
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();

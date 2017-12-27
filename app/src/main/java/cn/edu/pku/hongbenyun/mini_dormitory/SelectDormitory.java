@@ -201,7 +201,7 @@ public class SelectDormitory extends Activity implements View.OnClickListener{
                 EditText vcodeid_Et = (EditText) other_students_Lv.getAdapter().getView(i,null,null).findViewById(R.id.vcode_other);
                 s= s+"\n"+studentid_Et.getText().toString()+" "+vcodeid_Et.getText().toString();
             }
-            Toast.makeText(this,s , Toast.LENGTH_SHORT).show();
+            Log.d("mydoritory",s);
 
             String url = "https://api.mysspku.com/index.php/V1/MobileCourse/SelectRoom";
             HashMap<String,String> hashMap=new HashMap<>();

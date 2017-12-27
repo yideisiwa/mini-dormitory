@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -17,14 +20,6 @@
             android:text="在线选宿舍系统"
             android:textColor="#ffffffff"
             android:textSize="20.0dip" />
-        <ImageView
-            android:id="@+id/title_update_btn"
-            android:layout_width="45.0dip"
-            android:layout_height="45.0dip"
-            android:layout_alignParentRight="true"
-            android:layout_gravity="center"
-            android:src="@drawable/title_update"
-            android:visibility="visible" />
     </RelativeLayout>
 
     <ImageView
@@ -273,6 +268,14 @@
         android:layout_height="1.0dip"
         android:background="#FAFAFA" />
 
+    <ImageView
+        android:id="@+id/map"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_margin="10dp"
+        android:src="@drawable/map"
+        android:visibility="gone"/>
+
     <Button
         android:id="@+id/start_selection"
         android:layout_width="wrap_content"
@@ -284,3 +287,4 @@
 
 
 </LinearLayout>
+    </ScrollView>
